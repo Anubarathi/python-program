@@ -1,0 +1,13 @@
+import pandas as pd
+from functools import reduce
+ages=[15,20,25,30,35,40,45,50,60,65,70]
+df=pd.DataFrame({'Age':ages})
+df['Age Group']=df['Age'].apply(lambda age:'child'if age <=18 else 'Adult' if age <=65 else 'Senior')
+print(df)
+print("\n children ages:",
+list(filter(lambda age:age <18,ages)))
+print("\n ages next birthday",
+list(map(lambda age:age +1,ages)))
+total_age=reduce (lambda x,y:x+y,ages)
+print("\n Total ages:",total_age)
+print("\nAverage age:",total_age/len(ages))
